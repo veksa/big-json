@@ -6,7 +6,7 @@ interface IStringifyParams {
     space?: number;
 }
 
-export const stringify = (params: IStringifyParams) => {
+export const stringify = (params: IStringifyParams): Promise<string> => {
     return new Promise((resolve, reject) => {
         const passThrough = new PassThrough();
 
