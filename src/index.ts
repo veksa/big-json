@@ -1,7 +1,5 @@
-'use strict';
-
 // core modules
-const { PassThrough } = require('stream');
+const {PassThrough} = require('stream');
 const util = require('util');
 
 // external modules
@@ -10,7 +8,7 @@ const intoStream = require('into-stream');
 const JSONStream = require('JSONStream');
 const through2 = require('through2');
 const once = require('once').strict;
-const { JsonStreamStringify } = require('json-stream-stringify');
+const {JsonStreamStringify} = require('json-stream-stringify');
 
 // promisified implementations of callback APIs.
 const _parsePromisified = util.promisify(_parse);
@@ -56,20 +54,20 @@ function createParseStream() {
             return cb();
         },
         function flush(cb) {
-            parseStream.on('end', function() {
+            parseStream.on('end', function () {
                 return cb(null, accumulator);
             });
             parseStream.end();
         }
     );
 
-    parseStream.on('data', function(chunk) {
+    parseStream.on('data', function (chunk) {
         // this syntax should work when accumulator is object or array
         accumulator[chunk.key] = chunk.value;
     });
 
     // make sure error is forwarded on to wrapper stream.
-    parseStream.on('error', function(err) {
+    parseStream.on('error', function (err) {
         wrapperStream.emit('error', err);
     });
 
@@ -114,11 +112,11 @@ function _parse(opts, callback) {
     const parseStream = createParseStream();
     const cb = once(callback);
 
-    parseStream.on('data', function(data) {
+    parseStream.on('data', function (data) {
         return cb(null, data);
     });
 
-    parseStream.on('error', function(err) {
+    parseStream.on('error', function (err) {
         return cb(err);
     });
 
@@ -164,17 +162,17 @@ function _stringify(opts, callback) {
     const cb = once(callback);
 
     // setup the passthrough stream as a sink
-    passthroughStream.on('data', function(chunk) {
+    passthroughStream.on('data', function (chunk) {
         stringified += chunk;
     });
 
-    passthroughStream.on('end', function() {
+    passthroughStream.on('end', function () {
         return cb(null, stringified);
     });
 
     // don't know what errors stringify stream may emit, but pass them back
     // up.
-    stringifyStream.on('error', function(err) {
+    stringifyStream.on('error', function (err) {
         return cb(err);
     });
 

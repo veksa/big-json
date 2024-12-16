@@ -22,11 +22,7 @@ Session.vim
 .netrwhist
 *~
 
-# Unit Test Coverage #
-######################
-coverage/
-.nyc_output/
-
+lib/
 
 .pnp.*
 .yarn/*
