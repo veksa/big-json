@@ -1,9 +1,10 @@
 # big-json
 
-[![NPM Version](https://img.shields.io/npm/v/big-json.svg)](https://npmjs.org/package/big-json)
-[![CI](https://github.com/DonutEspresso/big-json/actions/workflows/main.yml/badge.svg)](https://github.com/DonutEspresso/big-json/actions/workflows/main.yml)
+Optimized fork of https://github.com/DonutEspresso/big-json
 
-> A stream based implementation of JSON.parse and JSON.stringify for big POJOs
+[![NPM Version](https://img.shields.io/npm/v/big-json.svg)](https://npmjs.org/package/@veksa/big-json)
+
+> A stream based implementation of JSON.parse and JSON.stringify for big data
 
 There exist many stream based implementations of JSON parsing or stringifying
 for large data sets. These implementations typical target time series data, new
@@ -52,8 +53,8 @@ const json = require('big-json');
 const readStream = fs.createReadStream('big.json');
 const parseStream = json.createParseStream();
 
-parseStream.on('data', function(pojo) {
-    // => receive reconstructed POJO
+parseStream.on('data', function(data) {
+    // => receive reconstructed data
 });
 
 readStream.pipe(parseStream);
@@ -64,11 +65,11 @@ To stringify JSON:
 const json = require('big-json');
 
 const stringifyStream = json.createStringifyStream({
-    body: BIG_POJO
+    body: BIG_DATA
 });
 
 stringifyStream.on('data', function(strChunk) {
-    // => BIG_POJO will be sent out in JSON chunks as the object is traversed
+    // => BIG_DATA will be sent out in JSON chunks as the object is traversed
 });
 ```
 

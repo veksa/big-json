@@ -1,17 +1,17 @@
 {
-  "name": "big-json",
+  "name": "@veksa/big-json",
   "type": "module",
   "version": "3.2.0",
-  "description": "A stream based implementation of JSON.parse and JSON.stringify for big POJOs",
-  "homepage": "https://github.com/DonutEspresso/big-json",
+  "description": "A stream based implementation of JSON.parse and JSON.stringify for big data",
+  "homepage": "https://github.com/veksa/big-json",
   "packageManager": "yarn@4.4.1",
   "author": {
-    "name": "Alex Liu",
-    "email": "donutespresso@gmail.com"
+    "name": "Alex Khizhnyi",
+    "email": "mendler88@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:DonutEspresso/big-json.git"
+    "url": "git@github.com:veksa/big-json.git"
   },
   "license": "MIT",
   "main": "./dist/cjs/bigJson.cjs",
