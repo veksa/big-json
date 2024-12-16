@@ -1367,6 +1367,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jsonstream@npm:^0.8.33":
+  version: 0.8.33
+  resolution: "@types/jsonstream@npm:0.8.33"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/040d927d83ec13afebcbfa6c5de95fb2003a3ebc826ecb3b189db6aebb4c3a90a25a510bae5f24561ca3b1dedb976ac5b6940230c990451989ba2cd615e99d0c
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 22.10.2
   resolution: "@types/node@npm:22.10.2"
@@ -1387,6 +1396,15 @@ __metadata:
   version: 2.0.3
   resolution: "@types/stack-utils@npm:2.0.3"
   checksum: 10/72576cc1522090fe497337c2b99d9838e320659ac57fa5560fcbdcbafcf5d0216c6b3a0a8a4ee4fdb3b1f5e3420aa4f6223ab57b82fef3578bec3206425c6cf5
+  languageName: node
+  linkType: hard
+
+"@types/through2@npm:^2.0.41":
+  version: 2.0.41
+  resolution: "@types/through2@npm:2.0.41"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/d5a475db410065169bdd40fcf118d888b3d7976cebbcd44d44d1c744fa7d475f37c59cdf9f28b1a0d9388892691029d1fccef955ba0e521bb58508aad0f86518
   languageName: node
   linkType: hard
 
@@ -1806,13 +1824,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"assert-plus@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "assert-plus@npm:1.0.0"
-  checksum: 10/f4f991ae2df849cc678b1afba52d512a7cbf0d09613ba111e72255409ff9158550c775162a47b12d015d1b82b3c273e8e25df0e4783d3ddb008a293486d00a07
-  languageName: node
-  linkType: hard
-
 "ast-types-flow@npm:^0.0.8":
   version: 0.0.8
   resolution: "ast-types-flow@npm:0.0.8"
@@ -1952,10 +1963,11 @@ __metadata:
     "@nabla/vite-plugin-eslint": "npm:^2.0.5"
     "@stylistic/eslint-plugin": "npm:^2.12.1"
     "@types/jest": "npm:^29.5.14"
+    "@types/jsonstream": "npm:^0.8.33"
+    "@types/through2": "npm:^2.0.41"
     "@typescript-eslint/eslint-plugin": "npm:^8.18.0"
     "@typescript-eslint/parser": "npm:^8.18.0"
     JSONStream: "npm:^1.3.5"
-    assert-plus: "npm:^1.0.0"
     eslint: "npm:^9.17.0"
     eslint-config-airbnb: "npm:^19.0.4"
     eslint-config-airbnb-typescript: "npm:^18.0.0"
@@ -1966,11 +1978,9 @@ __metadata:
     eslint-plugin-regexp: "npm:^2.7.0"
     eslint-plugin-simple-import-sort: "npm:^12.1.1"
     eslint-plugin-unicorn: "npm:^56.0.1"
-    into-stream: "npm:^8.0.1"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     json-stream-stringify: "npm:^3.1.6"
-    once: "npm:^1.4.0"
     through2: "npm:^4.0.2"
     ts-jest: "npm:^29.2.5"
     tsup: "npm:^8.3.5"
@@ -3867,13 +3877,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"into-stream@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "into-stream@npm:8.0.1"
-  checksum: 10/a39dcc71ffdfc4befb40eb0ba9f0244c9bc72ddc577599456f9b2bc7b724ddff5c2703b70e369a280650f8b8ed95f42b0d6c6fc4d0863bf3a071521f8c31db6e
-  languageName: node
-  linkType: hard
-
 "ip-address@npm:^9.0.5":
   version: 9.0.5
   resolution: "ip-address@npm:9.0.5"
@@ -5479,7 +5482,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"once@npm:^1.3.0, once@npm:^1.4.0":
+"once@npm:^1.3.0":
   version: 1.4.0
   resolution: "once@npm:1.4.0"
   dependencies:

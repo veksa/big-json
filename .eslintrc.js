@@ -34,11 +34,57 @@ export default tseslint.config(
             },
         },
         rules: {
+            'semi': 'off',
             'indent': 'off',
+            'comma-dangle': 'off',
+            'linebreak-style': 'off',
+            'object-curly-spacing': 'off',
+            'arrow-parens': 'off',
+            'import/no-unresolved': 'off',
+            'import/prefer-default-export': 'off',
+            'arrow-body-style': 'off',
+            'no-restricted-syntax': 'off',
+            '@stylistic/indent-binary-ops': 'off',
+            '@typescript-eslint/ban-ts-comment': 'off',
             '@stylistic/indent': [
                 'error', 4,
             ],
-            'comma-dangle': 'off',
+            '@stylistic/brace-style': [
+                'error', '1tbs',
+            ],
+            '@stylistic/semi': [
+                'error', 'always',
+            ],
+            'import/extensions': 'off',
+            '@stylistic/object-curly-spacing': [
+                'error', 'never',
+            ],
+            '@stylistic/arrow-parens': [
+                'error', 'as-needed',
+            ],
+            'max-len': [
+                'error', {
+                    'code': 140,
+                    'tabWidth': 4,
+                    'ignoreComments': true,
+                    'ignoreStrings': true,
+                    'ignoreTemplateLiterals': true,
+                    'ignoreRegExpLiterals': true,
+                    'ignorePattern': '^import \\{\\(.*?\\)\\}'
+                }
+            ],
+            '@stylistic/member-delimiter-style': [
+                'error', {
+                    'multiline': {
+                        'delimiter': 'semi',
+                        'requireLast': true
+                    },
+                    'singleline': {
+                        'delimiter': 'semi',
+                        'requireLast': false
+                    }
+                }
+            ],
         }
     },
 );

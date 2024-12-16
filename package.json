@@ -38,7 +38,7 @@
   "scripts": {
     "build": "npm run clean && tsup",
     "compile": "tsc --noEmit",
-    "lint": "eslint -c .eslintrc.js --quiet src/ test/",
+    "lint": "eslint -c .eslintrc.js --quiet src/",
     "test": "jest"
   },
   "devDependencies": {
@@ -47,6 +47,8 @@
     "@nabla/vite-plugin-eslint": "^2.0.5",
     "@stylistic/eslint-plugin": "^2.12.1",
     "@types/jest": "^29.5.14",
+    "@types/jsonstream": "^0.8.33",
+    "@types/through2": "^2.0.41",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
     "eslint": "^9.17.0",
@@ -68,10 +70,7 @@
   },
   "dependencies": {
     "JSONStream": "^1.3.5",
-    "assert-plus": "^1.0.0",
-    "into-stream": "^8.0.1",
     "json-stream-stringify": "^3.1.6",
-    "once": "^1.4.0",
     "through2": "^4.0.2"
   }
 }
