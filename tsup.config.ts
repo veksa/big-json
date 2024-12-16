@@ -3,7 +3,7 @@ import {defineConfig, Options} from 'tsup';
 export default defineConfig(options => {
     const commonOptions: Partial<Options> = {
         entry: {
-            reduxValidation: 'src/index.ts',
+            bigJson: 'src/index.ts',
         },
         sourcemap: true,
         ...options,
