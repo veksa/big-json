@@ -127,6 +127,6 @@ make prepush
 
 ## License
 
-Copyright (c) 2019 Alex Liu
+Copyright (c) 2019 Alex Khizhnyi
 
 Licensed under the MIT license.
