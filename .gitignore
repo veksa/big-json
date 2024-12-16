@@ -22,7 +22,7 @@ Session.vim
 .netrwhist
 *~
 
-lib/
+dist/
 
 .pnp.*
 .yarn/*
