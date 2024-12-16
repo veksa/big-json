@@ -3,13 +3,14 @@ import {createStringifyStream} from './createStringifyStream';
 
 interface IStringifyParams {
     body: object;
+    space?: number;
 }
 
-export const stringify = (opts: IStringifyParams) => {
+export const stringify = (params: IStringifyParams) => {
     return new Promise((resolve, reject) => {
         const passThrough = new PassThrough();
 
-        const stringifyStream = createStringifyStream(opts);
+        const stringifyStream = createStringifyStream(params);
 
         let result = '';
 

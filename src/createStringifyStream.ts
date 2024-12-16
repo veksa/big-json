@@ -2,10 +2,12 @@ import {JsonStreamStringify} from 'json-stream-stringify';
 
 interface IStringifyStreamParams {
     body: object;
+    space?: number;
+    bufferSize?: number;
 }
 
 export const createStringifyStream = (params: IStringifyStreamParams) => {
-    const {body} = params;
+    const {body, space, bufferSize = 512} = params;
 
-    return new JsonStreamStringify(body, undefined, undefined, false, 512);
+    return new JsonStreamStringify(body, undefined, space, false, bufferSize);
 };

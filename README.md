@@ -82,29 +82,29 @@ and arrays as root objects for stream data.
 
 __Returns__: {Stream} a JSON.parse stream
 
-### createStringifyStream(opts)
+### createStringifyStream(params)
 
-* `opts` {Object} an options object
-* `opts.body` {Object | Array} an object or array to JSON.stringify
+* `params` {Object} an options object
+* `params.body` {Object | Array} an object or array to JSON.stringify
 
 __Returns__: {Stream} a JSON.stringify stream
 
-### parse(opts, [callback])
+### parse(params, [callback])
 An async JSON.parse using the same underlying stream implementation. If a
 callback is not passed, a promise is returned.
 
-* `opts` {Object} an options object
-* `opts.body` {String | Buffer} the string or buffer to be parsed
+* `params` {Object} an options object
+* `params.body` {String | Buffer} the string or buffer to be parsed
 * `callback` {Function} a callback object
 
 __Returns__: {Object | Array} the parsed JSON
 
-### stringify(opts, [callback])
+### stringify(params, [callback])
 An async JSON.stringify using the same underlying stream implementation. If a
 callback is not passed, a promise is returned.
 
-* `opts` {Object} an options object
-* `opts.body` {Object} the object to be stringified
+* `params` {Object} an options object
+* `params.body` {Object} the object to be stringified
 * `callback` {Function} a callback object
 
 __Returns__: {Object} the stringified object

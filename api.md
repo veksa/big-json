@@ -30,8 +30,8 @@ create a JSON.stringify readable stream.
 
 ### Parameters
 
--   `opts` **[Object][11]** an options object
-    -   `opts.body` **[Object][11]** the JS object to JSON.stringify
+-   `params` **[Object][11]** an options object
+    -   `params.body` **[Object][11]** the JS object to JSON.stringify
 
 Returns **[Stream][10]** 
 
@@ -41,8 +41,8 @@ stream based JSON.parse. async function signature to abstract over streams.
 
 ### Parameters
 
--   `opts` **[Object][11]** options to pass to parse stream
-    -   `opts.body` **([String][12] \| [Buffer][13])** string or buffer to parse
+-   `params` **[Object][11]** options to pass to parse stream
+    -   `params.body` **([String][12] \| [Buffer][13])** string or buffer to parse
 -   `callback` **[Function][14]** a callback function
 
 Returns **([Object][11] \| [Array][15])** the parsed JSON
@@ -54,8 +54,8 @@ variadic arguments to support both promise and callback based usage.
 
 ### Parameters
 
--   `opts` **[Object][11]** options to pass to parse stream
-    -   `opts.body` **[String][12]** string to parse
+-   `params` **[Object][11]** options to pass to parse stream
+    -   `params.body` **[String][12]** string to parse
 -   `callback` **[Function][14]?** a callback function. if empty, returns a
     promise.
 
@@ -68,7 +68,7 @@ streams. variadic arguments to support both promise and callback based usage.
 
 ### Parameters
 
--   `opts` **[Object][11]** options to pass to stringify stream
+-   `params` **[Object][11]** options to pass to stringify stream
 -   `callback` **[Function][14]?** a callback function. if empty, returns a
     promise.
 
