@@ -5,7 +5,7 @@ interface IParseParams {
     body: Buffer | string;
 }
 
-export const parse = (params: IParseParams) => {
+export const parse = (params: IParseParams): Promise<object> => {
     const {body} = params;
 
     return new Promise((resolve, reject) => {
