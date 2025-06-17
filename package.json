@@ -1,6 +1,6 @@
 {
   "name": "@veksa/big-json",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A stream based implementation of JSON.parse and JSON.stringify for big data",
   "homepage": "https://github.com/veksa/big-json",
   "packageManager": "yarn@4.9.2",
