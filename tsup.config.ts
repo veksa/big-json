@@ -3,26 +3,33 @@ import {defineConfig, Options} from 'tsup';
 export default defineConfig(options => {
     const commonOptions: Partial<Options> = {
         entry: {
-            bigJson: 'src/index.ts',
+            index: 'src/index.ts',
         },
         sourcemap: true,
+        target: ["esnext"],
+        minify: true,
         ...options,
     };
 
     return [
         {
             ...commonOptions,
-            format: ['cjs', 'esm'],
-            target: 'es2019',
+            name: "Modern ESM",
+            format: ['esm'],
+            target: ["es2019"],
             outExtension: () => ({js: '.mjs'}),
-            dts: true,
-            clean: true,
         },
         {
             ...commonOptions,
             format: 'cjs',
             outDir: './dist/cjs/',
             outExtension: () => ({js: '.cjs'}),
+        },
+        {
+            ...commonOptions,
+            name: "CJS Type Definitions",
+            format: ["cjs"],
+            dts: {only: true},
         },
     ];
 });

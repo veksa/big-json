@@ -1,26 +1,25 @@
 {
   "name": "@veksa/big-json",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A stream based implementation of JSON.parse and JSON.stringify for big data",
   "homepage": "https://github.com/veksa/big-json",
   "packageManager": "yarn@4.9.2",
   "author": {
-    "name": "Alex Khizhnyi",
+    "name": "Aleksandr Khizhnyi",
     "email": "mendler88@gmail.com"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:veksa/big-json.git"
   },
-  "license": "MIT",
-  "main": "./dist/cjs/bigJson.cjs",
-  "types": "./dist/bigJson.d.ts",
+  "main": "./dist/cjs/index.cjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/bigJson.d.ts",
-      "import": "./dist/bigJson.mjs",
-      "default": "./dist/cjs/bigJson.cjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/cjs/index.cjs"
     }
   },
   "sideEffects": false,
@@ -35,8 +34,8 @@
     "stringify"
   ],
   "scripts": {
-    "build": "npm run clean && tsup",
     "clean": "shx rm -rf dist",
+    "build": "npm run clean && tsup",
     "compile": "tsc --noEmit",
     "lint": "eslint -c .eslintrc.js --quiet src/",
     "test": "jest"
