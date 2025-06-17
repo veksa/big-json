@@ -9,14 +9,14 @@ Optimized fork of https://github.com/DonutEspresso/big-json
 > A stream based implementation of JSON.parse and JSON.stringify for big data
 
 There exist many stream based implementations of JSON parsing or stringifying
-for large data sets. These implementations typical target time series data, new
+for large data sets. These implementations typically target time series data, new
 line delimited data or other array-like data, e.g., logging records or other
 continuous flowing data.
 
 This module hopes to fill a gap in the ecosystem: parsing large JSON objects
 that are just _really_ big objects. With large in-memory objects, it is
 possible to run up against the V8 string length limitation, which is currently
-(as of 9/2017) limited to 512MB. Thus, if your large object has enough keys
+limited to 512MB. Thus, if your large object has enough keys
 or values, it is possible to exceed the string length limit when calling
 [JSON.stringify](https://github.com/nodejs/node/issues/10738).
 
@@ -41,19 +41,18 @@ stringification.
 
 ## Getting Started
 
-Install the module with: `npm install big-json`
+Install the module with: `npm install @veksa/big-json`
 
 ## Usage
 
 To parse a big JSON coming from an external source:
 
 ```js
-const fs = require('fs');
-const path = require('path');
-const json = require('big-json');
+import fs from 'fs';
+import {createParseStream} from '@veksa/big-json';
 
 const readStream = fs.createReadStream('big.json');
-const parseStream = json.createParseStream();
+const parseStream = createParseStream();
 
 parseStream.on('data', function(data) {
     // => receive reconstructed data
@@ -64,9 +63,9 @@ readStream.pipe(parseStream);
 
 To stringify JSON:
 ```js
-const json = require('big-json');
+import {createStringifyStream} from '@veksa/big-json';
 
-const stringifyStream = json.createStringifyStream({
+const stringifyStream = createStringifyStream({
     body: BIG_DATA
 });
 
@@ -75,61 +74,91 @@ stringifyStream.on('data', function(strChunk) {
 });
 ```
 
+Promise-based API for parsing:
+```js
+import {parse} from '@veksa/big-json';
+
+const result = await parse({
+    body: jsonString
+});
+// => result contains the parsed JSON object/array
+```
+
+Promise-based API for stringifying:
+```js
+import {stringify} from '@veksa/big-json';
+
+const jsonString = await stringify({
+    body: bigObject
+});
+// => jsonString contains the stringified representation of bigObject
+```
 
 ## API
 
 ### createParseStream()
-Parses an incoming stream and accumulates it into a POJO. Supports both objects
-and arrays as root objects for stream data.
 
-__Returns__: {Stream} a JSON.parse stream
+Create a JSON.parse that uses a stream interface. The underlying
+implementation is handled by JSONStream. This is merely a thin wrapper for
+convenience that handles the reconstruction/accumulation of each
+individually parsed field.
+
+The advantage of this approach is that by also using a streams interface,
+any JSON parsing or stringification of large objects won't block the CPU.
+
+**Returns**: `Stream` - A stream interface for parsing JSON
 
 ### createStringifyStream(params)
 
-* `params` {Object} an options object
-* `params.body` {Object | Array} an object or array to JSON.stringify
+Create a JSON.stringify readable stream.
 
-__Returns__: {Stream} a JSON.stringify stream
+**Parameters**:
+- `params` **Object** - An options object
+  - `params.body` **Object** - The JS object to JSON.stringify
+  - `params.space` **number** (optional) - Number of spaces for indentation
+  - `params.bufferSize` **number** (optional) - Size of the internal buffer (default: 512)
 
-### parse(params, [callback])
-An async JSON.parse using the same underlying stream implementation. If a
-callback is not passed, a promise is returned.
+**Returns**: `Stream` - A readable stream with JSON string chunks
 
-* `params` {Object} an options object
-* `params.body` {String | Buffer} the string or buffer to be parsed
-* `callback` {Function} a callback object
+### parse(params)
 
-__Returns__: {Object | Array} the parsed JSON
+Stream based JSON.parse with promise-based API. 
 
-### stringify(params, [callback])
-An async JSON.stringify using the same underlying stream implementation. If a
-callback is not passed, a promise is returned.
+**Parameters**:
+- `params` **Object** - Options to pass to parse stream
+  - `params.body` **String|Buffer** - String or buffer to parse
 
-* `params` {Object} an options object
-* `params.body` {Object} the object to be stringified
-* `callback` {Function} a callback object
+**Returns**: `Promise<Object|Array>` - The parsed JSON
 
-__Returns__: {Object} the stringified object
+### stringify(params)
 
-## Contributing
+Stream based JSON.stringify with promise-based API.
 
-Ensure that all linting and codestyle tasks are passing. Add unit tests for any
-new or changed functionality.
+**Parameters**:
+- `params` **Object** - Options to pass to stringify stream
+  - `params.body` **Object** - The object to be stringified
+  - `params.space` **number** (optional) - Number of spaces for indentation
 
-To start contributing, install the git prepush hooks:
-
-```sh
-make githooks
-```
-
-Before committing, lint and test your code using the included Makefile:
-```sh
-make prepush
-```
+**Returns**: `Promise<string>` - The stringified JSON
 
 ## Contributing
 
-This project welcomes contributions and suggestions.
+This project welcomes contributions and suggestions. To contribute:
+
+1. Fork and clone the repository
+2. Install dependencies: `yarn install`
+3. Make your changes
+4. Run linting: `yarn lint`
+5. Run tests: `yarn test`
+6. Submit a pull request
+
+## Available Scripts
+
+- `yarn clean` - Remove the dist directory
+- `yarn build` - Clean and build the project
+- `yarn compile` - Run TypeScript compiler without emitting files
+- `yarn lint` - Run ESLint
+- `yarn test` - Run tests
 
 ## License
 
