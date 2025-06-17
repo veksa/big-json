@@ -1,8 +1,10 @@
-# big-json
+# @veksa/big-json
 
 Optimized fork of https://github.com/DonutEspresso/big-json
 
-[![NPM Version](https://img.shields.io/npm/v/big-json.svg)](https://npmjs.org/package/@veksa/big-json)
+[![npm version](https://img.shields.io/npm/v/@veksa/big-json.svg?style=flat-square)](https://www.npmjs.com/package/@veksa/big-json)
+[![npm downloads](https://img.shields.io/npm/dm/@veksa/big-json.svg?style=flat-square)](https://www.npmjs.com/package/@veksa/big-json)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE.md)
 
 > A stream based implementation of JSON.parse and JSON.stringify for big data
 
@@ -125,8 +127,10 @@ Before committing, lint and test your code using the included Makefile:
 make prepush
 ```
 
+## Contributing
+
+This project welcomes contributions and suggestions.
+
 ## License
 
-Copyright (c) 2019 Alex Khizhnyi
-
-Licensed under the MIT license.
+[MIT](LICENSE.md)
